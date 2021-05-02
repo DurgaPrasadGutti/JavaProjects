@@ -44,7 +44,19 @@ public class FilesUtility {
 			System.out.println("** There are no files to display..");
 		}else
 		{
-			Arrays.sort(fileNames);
+			//Bubble sort in Ascending Order- ignoring case sensitivity
+			for(int i=0;i<fileNames.length;i++)
+			{
+				for(int j=i;j<fileNames.length;j++)
+				{
+					if(fileNames[i].compareToIgnoreCase(fileNames[j])>0)
+					{
+						String temp=fileNames[i];
+						fileNames[i]=fileNames[j];
+						fileNames[j]=temp;
+					}
+				}
+			}
 			System.out.println("** please find below the list of files present in the Application");
 			for(String fileName : fileNames)
 			{
